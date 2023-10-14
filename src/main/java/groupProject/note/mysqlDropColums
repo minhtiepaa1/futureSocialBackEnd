@@ -1,0 +1,36 @@
+àm sao để bỏ các cột về như lúc chưa kết nối 2 bảng
+
+ChatGPT
+Để bỏ các cột về trạng thái như lúc chưa kết nối hai bảng, bạn có thể thực hiện các bước sau:
+
+Sao lưu dữ liệu quan trọng (nếu cần): Trước khi thay đổi cấu trúc bảng, hãy đảm bảo bạn đã sao lưu dữ liệu quan trọng từ các bảng.
+
+Bỏ kết nối (drop) khóa ngoại (foreign key): Nếu bạn đã tạo khóa ngoại để kết nối hai bảng, hãy bỏ nó bằng cách sử dụng câu lệnh ALTER TABLE.
+
+sql
+Copy code
+ALTER TABLE ten_bang DROP FOREIGN KEY ten_khoa_ngoai;
+Trong đó, ten_bang là tên của bảng và ten_khoa_ngoai là tên của khóa ngoại bạn muốn bỏ.
+
+Bỏ cột (drop column): Bây giờ bạn có thể bỏ các cột mà bạn muốn loại bỏ khỏi bảng. Sử dụng câu lệnh ALTER TABLE với DROP COLUMN.
+
+sql
+Copy code
+ALTER TABLE ten_bang DROP COLUMN ten_cot;
+Trong đó, ten_bang là tên của bảng và ten_cot là tên của cột bạn muốn bỏ.
+
+Thêm cột mới (nếu cần): Nếu bạn muốn thêm lại các cột khác vào bảng để thay thế các cột đã bị xóa, bạn có thể sử dụng câu lệnh ALTER TABLE để thêm các cột mới.
+
+sql
+Copy code
+ALTER TABLE ten_bang ADD COLUMN ten_cot_moi INT;
+Điều này sẽ thêm một cột mới có tên ten_cot_moi kiểu dữ liệu INTEGER vào bảng ten_bang. Bạn có thể điều chỉnh kiểu dữ liệu và thuộc tính của cột tùy theo nhu cầu.
+
+Nhớ rằng việc thay đổi cấu trúc bảng có thể ảnh hưởng đến dữ liệu hiện có, vì vậy hãy thực hiện cẩn thận và đảm bảo bạn đã sao lưu dữ liệu quan trọng trước khi thực hiện bất kỳ thay đổi nào.
+
+
+practive:
+// drop key click cờ lê ở bảng xong vào foreignKeys
+ALTER TABLE myproject.list_songs DROP FOREIGN KEY FKh2ydhl5n33il8332fbnp8429r;
+// drop columns name
+ALTER TABLE myproject.list_songs DROP COLUMN name_users;
