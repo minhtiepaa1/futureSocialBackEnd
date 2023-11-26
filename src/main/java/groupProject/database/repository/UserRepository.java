@@ -13,11 +13,16 @@ import java.util.List;
 @Repository
 @EnableJpaRepositories
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query(value = "SELECT * FROM myproject.user_table u WHERE u.id= :id AND u.name= :name",
+    @Query(value = "SELECT * FROM myproject.user_table u WHERE u.name= :userName",
         nativeQuery = true
     )
-    public User findUserByIdAndName( Long id, String name);
+    User findByUserName( String userName);
     @Query (value = "SELECT * FROM myproject.user_table", nativeQuery = true)
-    public List<User> geAllUsers();
+    List<User> geAllUsers();
+
+    @Query(value = "SELECT * FROM myproject.user_table u WHERE u.user_name= :userName AND u.pass_word= :passWord",
+    nativeQuery = true
+    )
+    User findByUserNameAndPassWord(Long passWord, String userName);
 
 }

@@ -12,7 +12,10 @@ User update(Long id, User user);
 
 void delete(Long id);
 User findById(Long id);
-User findUserByIdAndName(Long id, String name);
+User findByUserName(String userName);
 List<User> getAllUsers();
+
+User findByUserNameAndPassWord(Long passWord, String userName);
+
 }
 
