@@ -21,7 +21,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    private String name;
+    private String fullName;
+    private String userName;
+    private Long passWord;
+    private Long age;
     @Column(name = "email")
     private  String email;
 //    @OneToMany (mappedBy = "nameSong")
