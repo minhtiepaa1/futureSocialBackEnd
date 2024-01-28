@@ -1,11 +1,14 @@
 package groupProject.database.repository;
 
-import groupProject.database.domain.entity.ListSongs;
+import groupProject.database.domain.entity.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @EnableJpaRepositories
-public  interface ListSongsRepository extends JpaRepository<ListSongs, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
+    @Query(value = "", nativeQuery = true)
+    public Role getRoleByName(String name);
 }
